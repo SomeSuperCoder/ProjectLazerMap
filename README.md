@@ -27,7 +27,7 @@
   - Зайдите на сайт [Arduino](https://www.arduino.cc/en/software) и скачиваете Arduino IDE
   - Установите Arduino IDE
 - Скачайте исходный код
-  - Нажмите зелёную кнопку *Code>Download ZIP* на этом веб сайте
+  - Нажмите [сюда](https://github.com/SomeSuperCoder/RobotGidKartolaz/archive/refs/heads/main.zip) что-бы скачать архив проекта или нажмите зелёную кнопку *Code>Download ZIP* на этом веб сайте
   - Архив который вы скачали нужно распаковать (извлечь)
   - В следующем шаге мы будем работать с файлом *robotgidkartolaz.ino*
 - Редактируете и настраивайте код под себя
