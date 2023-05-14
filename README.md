@@ -24,7 +24,7 @@
   joystick - Показать джостик
   degs_per_joy - Настроить чувствительность джостика*
 - Установка Arduino IDE
-  - Зайдите на сайт [Arduino](https://www.arduino.cc/en/software) и скачиваете Arduino IDE
+  - Зайдите [сюда](https://www.arduino.cc/en/software) и скачайте Arduino IDE
   - Установите Arduino IDE
 - Скачайте исходный код
   - Нажмите [сюда](https://github.com/SomeSuperCoder/RobotGidKartolaz/archive/refs/heads/main.zip) что-бы скачать архив проекта или нажмите зелёную кнопку *Code>Download ZIP* на этом веб сайте
