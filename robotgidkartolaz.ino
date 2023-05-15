@@ -2,7 +2,6 @@
 #include <UniversalTelegramBot.h>
 #include <EEPROM.h>
 #include <Servo.h>
-#include <math.h>
 
 #define WIFI_SSID "Название вашей WiFi сети"
 #define WIFI_PASSWORD "Пароль от вашей WiFi сети"
