@@ -4,8 +4,8 @@
 #include <Servo.h>
 #include <math.h>
 
-#define WIFI_SSID "VR"
-#define WIFI_PASSWORD "Kvant1943"
+#define WIFI_SSID "Название вашей WiFi сети"
+#define WIFI_PASSWORD "Пароль от вашей WiFi сети"
 
 #define servopin D0
 #define relepin D6
@@ -15,8 +15,7 @@
 
 WiFiClientSecure secured_client;
 
-#define BOT_TOKEN "6180741413:AAE6DnHWEV6vEviP6CYsW6RziIJWKY3f1Xk"
-// #define CHAT_ID "1375299437"
+#define BOT_TOKEN "Токен вашего бота"
 unsigned long BOT_MTBS = 100;
 
 X509List cert(TELEGRAM_CERTIFICATE_ROOT);
@@ -60,7 +59,6 @@ int max_right = 180;
 int max_left = 0;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   EEPROM.begin(1024);
 
@@ -91,7 +89,6 @@ void setup() {
   servoH.attach(servopin);
   servoV.attach(servopin);
 
-  // check first start
   if (EEPROM.read(10) != 'w') {
     EEPROM.put(11, city_list);
     EEPROM.put(10, 'w');
@@ -103,12 +100,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
-  // if (analogRead(joystick_pin) != 0) {
-  //   servo.write(servo.read() + joystick_speed);
-  // }
-
   if (millis() - bot_lasttime > BOT_MTBS) {
     int numNewMessages = bot.getUpdates(bot.last_message_received + 1);
     while (numNewMessages) {
@@ -243,16 +234,11 @@ void handleNewMessages(int numNewMessages) {
     // handle states
     if (botState == BotState::ENTER_CITY_NAME_ADD) {
       currently_addable_city.name = text;
-      // currently_addable_city.spX = round((readServoH() / calcSpX()) * readServoH());
-      // // currently_addable_city.spY = round(calcSpY() * readServoV());
-      // currently_addable_city.spY = round((readServoV() / calcSpY()) * readServoV());
       
       currently_addable_city.spX = readServoH();
       currently_addable_city.spY = readServoV();
       
       currently_addable_city.isFilled = true;
-      // bot.sendMessage(bot.messages[i].chat_id, "Введите spX");
-      // botState = BotState::ENTER_CITY_SPX_ADD;
       add_city();
       bot.sendMessage(bot.messages[i].chat_id, "Город успешно добавлен!");
       botState = BotState::NONE;
@@ -386,15 +372,6 @@ int calcSpY() {
 void show_city(String name) {
   for (int i = 0; i < MAX_CITY_AMOUNT; i++) {
     if (city_list[i].isFilled && city_list[i].name == name) {
-      // int spX = city_list[i].spX;      
-      // int spY = city_list[i].spY;
-      // // formula1: city_list[i].spX = round(spX * readServoH())
-      // // formula2: spX = city_list[i].spX / readServoH()s
-      // // int degX = calcSpX() * spX;
-      // // int degY = calcSpY() * spY;
-      // int degX = spX;
-      // int degY = spY;
-
       writeServoH(city_list[i].spX);
       delay(500);
       writeServoV(city_list[i].spY);
